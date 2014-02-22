@@ -14,6 +14,13 @@ exports.show = function(req, res, next) {
   });
 };
 
+exports.random = function(req, res, next) {
+  Quote.findRandom(function(err, quote) {
+    if (err) next(err);
+    res.send(quote.text);
+  });
+};
+
 exports.create = function(req, res, next) {
   new Quote({
     text: req.body.text,

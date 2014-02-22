@@ -1,7 +1,6 @@
+var dotenv = require('dotenv');
+dotenv.load();
 
-/**
- * Module dependencies.
- */
 require('./db');
 
 var express = require('express');
@@ -14,8 +13,6 @@ var http = require('http');
 var path = require('path');
 
 var app = express();
-
-var Quote;
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -36,14 +33,13 @@ app.use(errors.server);
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-  app.set('MONGODB_URI', 'mongodb://localhost/zenkaffee');
 }
 
-mongoose.connect(app.get('MONGODB_URI'));
-Quote = mongoose.model('Quote');
+mongoose.connect(process.env.MONGODB_URI);
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/says', quotes.random);
 app.get('/quotes', quotes.index);
 app.get('/quotes/:id', quotes.show);
 app.post('/quotes', quotes.create);
