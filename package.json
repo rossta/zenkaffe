@@ -9,6 +9,8 @@
     "express": "3.4.8",
     "jade": "*",
     "mongoose": "~3.8.7",
-    "dotenv": "~0.2.4"
+    "dotenv": "~0.2.4",
+    "passport-http": "~0.2.2",
+    "passport": "~0.2.0"
   }
 }
