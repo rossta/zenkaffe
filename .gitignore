@@ -2,3 +2,5 @@
 config/*.conf
 config/deploy.rb
 Capfile
+node_modules/
+.foreman

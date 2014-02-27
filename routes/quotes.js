@@ -3,6 +3,7 @@ var Quote = mongoose.model('Quote');
 
 exports.index = function(req, res) {
   Quote.find().select('text').exec(function(err, quotes, count) {
+    if (err) next(err);
     res.send(quotes);
   });
 };

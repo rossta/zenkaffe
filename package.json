@@ -5,12 +5,16 @@
   "scripts": {
     "start": "node app.js"
   },
+  "engines": {
+    "node": "0.10.x"
+  },
   "dependencies": {
     "express": "3.4.8",
     "jade": "*",
     "mongoose": "~3.8.7",
     "dotenv": "~0.2.4",
     "passport-http": "~0.2.2",
-    "passport": "~0.2.0"
+    "passport": "~0.2.0",
+    "logfmt": "~0.21.0"
   }
 }
