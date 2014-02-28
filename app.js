@@ -15,6 +15,8 @@ var path = require('path');
 var passport = require('passport');
 var DigestStrategy = require('passport-http').DigestStrategy;
 
+var mongoUrl = process.env.MONGODB_URI;
+
 var app = express();
 
 // all environments
@@ -53,7 +55,15 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 }
 
-mongoose.connect(process.env.MONGODB_URI);
+var connectWithRetry = function() {
+  return mongoose.connect(mongoUrl, function(err) {
+    if (err) {
+      console.error('Failed to connect to mongo on startup - retrying in 5 sec', err);
+      setTimeout(connectWithRetry, 5000);
+    }
+  });
+};
+connectWithRetry();
 
 app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
