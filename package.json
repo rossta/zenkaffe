@@ -1,12 +1,12 @@
 {
   "name": "zenkaffe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "6.10.x"
   },
   "dependencies": {
     "dotenv": "~0.2.4",
