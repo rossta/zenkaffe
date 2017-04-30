@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "zenkaffe",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,12 +9,17 @@
     "node": "0.10.x"
   },
   "dependencies": {
+    "dotenv": "~0.2.4",
     "express": "3.4.8",
     "jade": "*",
-    "mongoose": "~3.8.7",
-    "dotenv": "~0.2.4",
-    "passport-http": "~0.2.2",
+    "logfmt": "~0.21.0",
+    "mongodb": "^2.2.26",
+    "mongoose": "~4.4",
     "passport": "~0.2.0",
-    "logfmt": "~0.21.0"
-  }
+    "passport-http": "~0.2.2"
+  },
+  "main": "app.js",
+  "repository": "https://github.com/rossta/zenkaffe.git",
+  "author": "Ross Kaffenberger <rosskaff@gmail.com>",
+  "license": "MIT"
 }
